@@ -1,0 +1,53 @@
+/* Page styling */
+body {
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Blog container */
+.blog-container {
+    background-color: white;
+    max-width: 700px;
+    margin: auto;
+    padding: 25px;
+}
+
+/* Headings - Poppins font */
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Body content - Roboto font */
+.content {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+
+    .title {
+        font-size: 26px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+    }
+
+    .content {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}

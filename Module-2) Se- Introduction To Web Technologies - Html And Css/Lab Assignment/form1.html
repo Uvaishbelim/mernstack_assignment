@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Form</title>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2 style="text-align: center;">Contact Us</h2>
+
+    <form id="contactForm" action="#" method="post">
+
+        <!-- Full Name -->
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" class="form-field" name="fullname"
+               required minlength="3" maxlength="50"
+               placeholder="Enter your full name">
+        <br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" class="form-field" name="email"
+               required
+               placeholder="example@email.com">
+        <br><br>
+
+        <!-- Phone Number -->
+        <label for="phone">Phone Number:</label><br>
+        <input type="tel" id="phone" class="form-field" name="phone"
+               required
+               pattern="[0-9]{10}"
+               placeholder="10-digit phone number">
+        <br><br>
+
+        <!-- Subject Dropdown -->
+        <label for="subject">Subject:</label><br>
+        <select id="subject" class="form-field" name="subject" required>
+            <option value="">--Select Subject--</option>
+            <option value="support">Support</option>
+            <option value="feedback">Feedback</option>
+            <option value="inquiry">General Inquiry</option>
+        </select>
+        <br><br>
+
+        <!-- Message -->
+        <label for="message">Message:</label><br>
+        <textarea id="message" class="form-field" name="message"
+                  required minlength="10" maxlength="300"
+                  rows="5"
+                  placeholder="Write your message here..."></textarea>
+        <br><br>
+
+        <!-- Submit Button -->
+        <input type="submit" id="submitBtn" value="Submit">
+
+    </form>
+
+</body>
+</html>
