@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio, Video, Canvas & SVG</title>
+</head>
+<body>
+
+    <h2>🎵 Audio Tag</h2>
+    <audio controls autoplay loop muted>
+        <source src="file_example_MP3_700KB.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <hr>
+
+    <h2>🎬 Video Tag</h2>
+    <video width="320" height="240" controls autoplay loop muted>
+        <source src="earth.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <hr>
+
+    <h2>🎨 Canvas Shape</h2>
+    <canvas id="myCanvas" width="200" height="200" style="border:1px solid black;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Draw a rectangle
+        ctx.fillStyle = "blue";
+        ctx.fillRect(50, 50, 100, 80);
+    </script>
+
+    <hr>
+
+    <h2>🖼 SVG Shape</h2>
+    <svg width="200" height="200">
+        <circle cx="100" cy="100" r="50" fill="green" />
+    </svg>
+
+</body>
+</html>

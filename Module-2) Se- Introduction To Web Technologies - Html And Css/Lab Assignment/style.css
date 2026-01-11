@@ -1,0 +1,32 @@
+/* ID selector – unique form */
+#contactForm {
+    background-color: #f0f8ff;
+    width: 350px;
+    padding: 20px;
+    margin: 40px auto;
+    border-radius: 8px;
+}
+
+/* Class selector – common form fields */
+.form-field {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* ID selector – submit button */
+#submitBtn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+#submitBtn:hover {
+    background-color: #1e7e34;
+}
