@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function divide(a, b) {
+            try {
+                if (b === 0) {
+                    throw new Error("Cannot divide by zero!");
+                }
+
+                let result = a / b;
+                console.log("Result:", result);
+
+            } catch (error) {
+                console.log("Error:", error.message);
+            }
+        }
+
+        // Test cases
+        divide(10, 2);  // works
+        divide(10, 0);  // error
+    </script>
+</body>
+
+</html>
