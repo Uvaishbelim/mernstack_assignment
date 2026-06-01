@@ -1,0 +1,37 @@
+.project-card {
+  border: 2px solid #646cff;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(100, 108, 255, 0.3);
+}
+
+.project-card h3 {
+  margin: 0 0 10px 0;
+  color: #646cff;
+  font-size: 1.3em;
+}
+
+.project-card .description {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.project-card .year {
+  margin: 10px 0 0 0;
+  color: #888;
+  font-size: 0.9em;
+  font-weight: 600;
+}
