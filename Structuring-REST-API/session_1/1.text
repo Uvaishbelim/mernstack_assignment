@@ -1,0 +1,65 @@
+Task 1: Daily Actions in Instagram and Their HTTP Methods
+Daily Action (Instagram)	HTTP Method	Example API Endpoint	Reason
+View your feed	GET	/posts	Retrieves posts from the server.
+Create a new post	POST	/posts	Creates a new post.
+Edit a post caption	PUT	/posts/{id}	Updates an existing post.
+Delete a post	DELETE	/posts/{id}	Removes the post permanently.
+View a user's profile	GET	/users/{id}	Retrieves user profile information.
+
+
+Task 2: REST API Contract for Spotify Playlist Feature
+Endpoint (URL Path)	HTTP Method	Description
+/playlists	POST	Create a new playlist.
+/playlists	GET	Get all playlists of the user.
+/playlists/{playlistId}	GET	Get details of a specific playlist.
+/playlists/{playlistId}	PUT	Update playlist name or description.
+/playlists/{playlistId}	DELETE	Delete a playlist.
+/playlists/{playlistId}/songs	POST	Add a song to a playlist.
+/playlists/{playlistId}/songs/{songId}	DELETE	Remove a song from a playlist.
+/playlists/{playlistId}/songs	GET	Get all songs in a playlist.
+RESTful Naming Rules Followed
+Used plural nouns (playlists, songs).
+URLs represent resources, not actions.
+HTTP methods define the operation.
+
+
+Task 3: Update Delivery Address (Swiggy-like App)
+API Endpoint
+PUT /users/{userId}/address
+HTTP Method
+PUT
+Sample JSON Request Body
+{
+  "houseNumber": "A-102",
+  "street": "Satellite Road",
+  "city": "Ahmedabad",
+  "state": "Gujarat",
+  "pincode": "380015",
+  "landmark": "Near Iskcon Mall"
+}
+
+Explanation:
+
+PUT is used because an existing address is being updated.
+The user ID identifies whose address is being updated.
+The JSON body contains the new address details.
+
+Task 4: REST API Contract Review
+Given API Contract
+POST /getMovies
+GET /deleteBooking/{id}
+PUT /addUser
+DELETE /bookings/{id}
+Violations of REST Principles
+Incorrect API	Violation	Correct Version	Reason
+POST /getMovies	Wrong HTTP method and action-based endpoint name	GET /movies	Retrieving data should use GET, and endpoints should represent resources, not actions.
+GET /deleteBooking/{id}	GET should never delete data	DELETE /bookings/{id}	Deleting a resource must use the DELETE method.
+PUT /addUser (also a REST violation)	Creating a resource should use POST, and endpoint name should be resource-based	POST /users	New resources are created with POST on the collection resource.
+DELETE /bookings/{id}	✅ Correct	No change needed	Proper RESTful endpoint and HTTP method.
+Final Answer (Two Violations)
+POST /getMovies → GET /movies
+Uses the wrong HTTP method.
+Uses an action (getMovies) instead of a resource (movies).
+GET /deleteBooking/{id} → DELETE /bookings/{id}
+Uses GET for deleting data.
+Should use the DELETE method with a resource-based endpoint.
