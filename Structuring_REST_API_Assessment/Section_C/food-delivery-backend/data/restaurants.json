@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Pizza Hut",
+        "cuisine": "Italian",
+        "menu": []
+    },
+    {
+        "id": 2,
+        "name": "Burger King",
+        "cuisine": "Fast Food",
+        "menu": []
+    }
+]

@@ -1,0 +1,22 @@
+Prompt Given to AI
+
+Write a Node.js and Express.js application that creates a POST /api/orders endpoint.
+
+Requirements:
+
+1. Accept JSON body containing:
+   - customerId (string)
+   - restaurantId (string)
+   - menuItems (non-empty array)
+
+2. Validate all fields.
+
+3. Return HTTP 400 if validation fails.
+
+4. Generate a JWT containing the order details.
+
+5. Token should expire in 15 minutes.
+
+6. Return HTTP 200 with the generated token.
+
+7. Keep the code beginner friendly.

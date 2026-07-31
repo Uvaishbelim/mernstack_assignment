@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "name": "Spice Villa",
+      "cuisine": "Indian"
+    },
+    {
+      "id": 2,
+      "name": "Pizza Palace",
+      "cuisine": "Italian"
+    },
+    {
+      "id": 3,
+      "name": "Dragon Bowl",
+      "cuisine": "Chinese"
+    }
+  ]
