@@ -1,0 +1,228 @@
+Section A — Conceptual Understanding
+1. Why is Node.js preferred for real-time backend APIs?
+
+Node.js is built on Google's V8 JavaScript engine and uses an event-driven, non-blocking I/O model.
+
+This makes it useful for APIs where the server frequently waits for things like:
+
+Database queries
+File operations
+Network requests
+External APIs
+
+Instead of waiting for one operation to finish before handling another request, Node.js can continue processing other requests.
+
+Example
+
+Imagine:
+
+User 1 → MongoDB query ────────┐
+                               │
+User 2 → API request → handled immediately
+                               │
+User 3 → API request → handled immediately
+                               │
+                         MongoDB responds
+
+This is particularly useful for:
+
+Chat applications
+Notifications
+E-commerce APIs
+Live dashboards
+Streaming applications
+REST APIs
+Interview answer
+
+Node.js is preferred for real-time APIs because it uses an event-driven and non-blocking I/O architecture. It can handle multiple concurrent requests efficiently without creating a separate thread for every request, which makes it suitable for real-time and I/O-heavy applications.
+
+2. Explain Non-Blocking I/O with a File Read Example
+
+Suppose we have:
+
+data.txt
+
+A traditional blocking operation would wait for the file to finish reading.
+
+Node.js can instead use:
+
+const fs = require("fs");
+
+console.log("Start");
+
+fs.readFile("data.txt", "utf8", (err, data) => {
+    if (err) {
+        console.log(err);
+        return;
+    }
+
+    console.log(data);
+});
+
+console.log("End");
+
+Output:
+
+Start
+End
+[file contents]
+
+Notice:
+
+fs.readFile(...)
+
+starts the file operation, but Node.js doesn't stop everything while waiting.
+
+It continues:
+
+console.log("End");
+
+When the file is ready, the callback executes.
+
+Interview answer
+
+Non-blocking I/O means Node.js does not wait for an I/O operation such as file reading or database access to finish before continuing other work. Once the operation completes, Node.js handles the result through a callback, Promise, or async/await.
+
+3. How do Promises prevent Callback Hell?
+
+Callback hell happens when callbacks are nested inside callbacks.
+
+Example:
+
+getUser((user) => {
+    getOrders(user, (orders) => {
+        getPayment(orders, (payment) => {
+            getInvoice(payment, (invoice) => {
+                console.log(invoice);
+            });
+        });
+    });
+});
+
+This becomes difficult to read and maintain.
+
+With Promises:
+
+getUser()
+    .then(user => getOrders(user))
+    .then(orders => getPayment(orders))
+    .then(payment => getInvoice(payment))
+    .then(invoice => {
+        console.log(invoice);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+Even better, with async/await:
+
+async function getData() {
+    try {
+        const user = await getUser();
+        const orders = await getOrders(user);
+        const payment = await getPayment(orders);
+        const invoice = await getInvoice(payment);
+
+        console.log(invoice);
+    } catch (error) {
+        console.log(error);
+    }
+}
+Interview answer
+
+Promises avoid deeply nested callbacks by allowing asynchronous operations to be chained using .then() and .catch(). With async/await, Promise-based code becomes easier to read and maintain because it looks similar to synchronous code.
+
+4. MongoDB Document Structure for Product Catalog
+
+MongoDB is a NoSQL document database.
+
+Instead of tables and rows, MongoDB stores:
+
+Database
+   ↓
+Collection
+   ↓
+Documents
+
+For our application:
+
+shopnest
+   ↓
+products
+   ↓
+product document
+
+Example document:
+
+{
+    "_id": "ObjectId(...)",
+    "name": "iPhone 15",
+    "price": 69999,
+    "description": "Apple smartphone",
+    "category": "Electronics",
+    "stock": 20
+}
+
+Another document:
+
+{
+    "_id": "ObjectId(...)",
+    "name": "Nike Shoes",
+    "price": 4999,
+    "description": "Running shoes",
+    "category": "Footwear",
+    "stock": 50
+}
+
+Different documents can have different fields, which gives MongoDB flexibility.
+
+However, with Mongoose we can define a consistent schema.
+
+5. Why are Aggregation Pipelines Essential for Reports?
+
+Suppose we have:
+
+Electronics
+Electronics
+Clothing
+Clothing
+Footwear
+
+We might want to know:
+
+Category       Total Stock       Total Value
+------------------------------------------------
+Electronics       50              ₹2,00,000
+Clothing          80              ₹1,20,000
+Footwear          40                ₹80,000
+
+MongoDB aggregation lets us process multiple documents.
+
+For example:
+
+Product.aggregate([
+    {
+        $group: {
+            _id: "$category",
+            totalStock: {
+                $sum: "$stock"
+            },
+            totalValue: {
+                $sum: {
+                    $multiply: ["$price", "$stock"]
+                }
+            }
+        }
+    }
+]);
+
+Here:
+
+$group → groups products by category
+
+$sum → calculates totals
+
+$multiply → price × stock
+Interview answer
+
+MongoDB aggregation pipelines are useful for reports because they allow us to process and transform multiple documents inside the database. Operators such as $group, $sum, $match, and $sort can generate useful business insights without manually processing every document in Node.js.
